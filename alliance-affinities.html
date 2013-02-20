@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+
+Bostick calls this "marker."
+
+"Marker" only requires two files, this one and ds.js  
+
+A physical simulation of charged particles and springs places related characters in closer proximity, while unrelated characters are farther apart.
+
+Assign types to the "markers" (line pointers) in the svg.append definitions below.
+The default type does not need to be defined.  It will receive a gray fill.
+Match the css types to the third field in the data.
+-->
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tag Pairs</title>
+<script type="text/javascript" src="d3.js"></script>
+<style type="text/css">	
+
+.IU {color: #7D110C;}
+marker#IU {fill: #7D110C;}
+path.link.IU {stroke: #7D110C;}
+circle.fill.INDIANA {fill: #7D110C;}
+
+.UM {color: #3A5E8C;}
+marker#UM {fill: #3A5E8C;}
+path.link.UM {stroke: #3A5E8C;}
+circle.fill.MICHIGAN {fill: #3A5E8C;}
+
+.UW {color: #b70101;}
+marker#UW {fill: #b70101;}
+path.link.UW {stroke: #b70101;}
+circle.fill.WISCONSIN {fill: #b70101;}
+
+.NU {color: #520063;}
+marker#NU {fill: #520063;}
+path.link.NU {stroke: #520063;}
+circle.fill.NORTHWESTERN {fill: #520063;}
+
+.Other {color: gray;}
+marker#Other {fill: gray;}
+path.link.Other {stroke: gray;}
+circle.fill.Other {fill: gray;}
+
+
+path.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+circle.fill {
+  fill: #eee;
+  stroke: #555;
+  stroke-width: 1.5px;
+}
+
+/*
+circle {
+  fill: #666;
+  stroke: #333;
+  stroke-width: 1.5px;
+}
+*/
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+text.shadow {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-opacity: .8;
+}
+
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+}
+</style>
+</head>
+<body>
+  
+<div>
+<h5 align="left"><a href="index.html">Visualizations</a> > <a href="colleagues-aw.html">Alliance Affinities</a></h5>
+  <p>Alliance affinities. Colors represent groups: <span class="IU">Indiana</span>, <span class="UM">Michigan</span>, <span class="NU">Northwestern</span> and <span class="UW">Wisconsin-Madison</span>.</p>
+<hr size="1" noshade /></div>    
+<div style="clear:both"></div>
+    
+<script type="text/javascript">
+
+var orgs = ["INDIANA","MICHIGAN","NORTHWESTERN","WISCONSIN"];
+
+var links = [
+
+{source: "NORTHWESTERN", target: "BB Learn", type: "NU"},
+
+// {source: "INDIANA", target: "BB xpLor", type: "IU"},
+{source: "MICHIGAN", target: "BB xpLor", type: "UM"},
+// {source: "NORTHWESTERN", target: "BB xpLor", type: "NU"},
+// {source: "WISCONSIN", target: "BB xpLor", type: "UW"},
+
+{source: "BB Learn", target: "BB xpLor", type: "Other"},
+
+{source: "INDIANA", target: "Box", type: "IU"},
+{source: "MICHIGAN", target: "Box", type: "UM"},
+// {source: "NORTHWESTERN", target: "Box", type: "NU"},
+// {source: "WISCONSIN", target: "Box", type: "UW"},
+
+{source: "INDIANA", target: "Canvas", type: "IU"},
+{source: "MICHIGAN", target: "Canvas", type: "UM"},
+{source: "NORTHWESTERN", target: "Canvas", type: "NU"},
+{source: "WISCONSIN", target: "Canvas", type: "UW"},
+
+// {source: "INDIANA", target: "CourseLoad", type: "IU"},
+{source: "MICHIGAN", target: "CourseLoad", type: "UM"},
+// {source: "NORTHWESTERN", target: "CourseLoad", type: "NU"},
+{source: "WISCONSIN", target: "CourseLoad", type: "UW"},
+
+// {source: "INDIANA", target: "Coursera", type: "IU"},
+{source: "MICHIGAN", target: "Coursera", type: "UM"},
+// {source: "NORTHWESTERN", target: "Coursera", type: "NU"},
+// {source: "WISCONSIN", target: "Coursera", type: "UW"},
+
+{source: "INDIANA", target: "D2L", type: "IU"},
+// {source: "MICHIGAN", target: "D2L", type: "UM"},
+// {source: "NORTHWESTERN", target: "D2L", type: "NU"},
+{source: "WISCONSIN", target: "D2L", type: "UW"},
+
+{source: "INDIANA", target: "Google Apps", type: "IU"},
+{source: "MICHIGAN", target: "Google Apps", type: "UM"},
+{source: "NORTHWESTERN", target: "Google Apps", type: "NU"},
+{source: "WISCONSIN", target: "Google Apps", type: "UW"},
+
+// {source: "INDIANA", target: "Kaltura", type: "IU"},
+{source: "MICHIGAN", target: "Kaltura", type: "UM"},
+// {source: "NORTHWESTERN", target: "Kaltura", type: "NU"},
+{source: "WISCONSIN", target: "Kaltura", type: "UW"},
+
+// {source: "INDIANA", target: "LectureTools", type: "IU"},
+{source: "MICHIGAN", target: "LectureTools", type: "UM"},
+// {source: "NORTHWESTERN", target: "LectureTools", type: "NU"},
+// {source: "WISCONSIN", target: "LectureTools", type: "UW"},
+
+// {source: "INDIANA", target: "Piazza", type: "IU"},
+{source: "MICHIGAN", target: "Piazza", type: "UM"},
+// {source: "NORTHWESTERN", target: "Piazza", type: "NU"},
+// {source: "WISCONSIN", target: "Piazza", type: "UW"},
+
+{source: "MICHIGAN", target: "Sakai CLE", type: "UM"},
+{source: "INDIANA", target: "Sakai CLE", type: "IU"},
+
+{source: "MICHIGAN", target: "Sakai Samigo", type: "UM"},
+{source: "INDIANA", target: "Sakai Samigo", type: "IU"},
+
+{source: "Sakai Samigo", target: "Sakai CLE", type: "Other"},
+
+{source: "INDIANA", target: "CN", type: "IU"},
+// {source: "MICHIGAN", target: "CN", type: "UM"},
+// {source: "NORTHWESTERN", target: "CN", type: "NU"},
+{source: "WISCONSIN", target: "CN", type: "UW"},
+
+{source: "INDIANA", target: "Qualtrics", type: "IU"},
+{source: "MICHIGAN", target: "Qualtrics", type: "UM"},
+{source: "NORTHWESTERN", target: "Qualtrics", type: "NU"},
+{source: "WISCONSIN", target: "Qualtrics", type: "UW"}
+
+];
+
+var nodes = {};
+
+// Compute the distinct nodes from the links.
+links.forEach(function(link) {
+  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+});
+
+var width = 1060,
+    height = 1060;
+
+var force = d3.layout.force()
+    .nodes(d3.values(nodes))
+    .links(links)
+    .size([width, height])
+    .linkDistance(200)
+    .charge(-800)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// Per-type markers, as they don't inherit styles.
+// marker = arrow pointer
+svg.append("defs").selectAll("marker")
+    .data(["IU", "UM", "NU", "UW", "Other"])
+  .enter().append("marker")
+    .attr("id", String)
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 3)
+    .attr("markerHeight", 3)
+    .attr("orient", "auto")
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5");
+
+var path = svg.append("g").selectAll("path")
+    .data(force.links())
+  .enter().append("path")
+    .attr("class", function(d) { return "link " + d.type; })
+    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+// adjust the fill color for institutional node per defined styles above
+var circle = svg.append("g").selectAll("circle")
+    .data(force.nodes())
+  .enter().append("circle")
+    .attr("class", function(d) { return "fill " + d.name; })
+    .attr("r", function(d) {
+        // quick hack
+        if (d.name.toLowerCase() == "indiana" || d.name.toLowerCase() == "michigan" || d.name.toLowerCase() == "northwestern" || d.name.toLowerCase() == "wisconsin") {
+            return 20;
+        }
+        return 10;
+    })     
+/*    
+    for (var i=0; i<orgs.length; i++) {    
+            if (stringArray[i].match(d.name)) {
+                return 50;
+            } 
+        }
+        return 9;
+    })
+*/
+    /*.attr("r", 9)*/
+    .on("click", function(d,i) { alert("Hello Alliance"); })
+    //.on("click", function(d,i) { alert(d3.select(this).r;) })
+    .call(force.drag);
+
+// It would be cool to replace institutional circles with a logo.
+
+/*
+function setRadius(org) {
+    var circleRadius = 9;
+    for (var i=0; i < orgs.length; i++) {
+        if (stringArray[i].match(org.toLowerCase())) {
+            circleRadius = 25;
+        }
+    }
+    return circleRadius;
+  }
+*/
+var text = svg.append("g").selectAll("g")
+    .data(force.nodes())
+  .enter().append("g");
+
+// A copy of the text with a thick white stroke for legibility.
+text.append("text")
+    .attr("x", 8)
+    .attr("y", ".31em")
+    .attr("class", "shadow")
+    .text(function(d) { return d.name; });
+
+text.append("text")
+    .attr("x", 8)
+    .attr("y", ".31em")
+    .text(function(d) { return d.name; });
+
+// Use elliptical arc path segments to doubly-encode directionality.
+function tick() {
+  path.attr("d", function(d) {
+    var dx = d.target.x - d.source.x,
+        dy = d.target.y - d.source.y,
+        dr = Math.sqrt(dx * dx + dy * dy);
+    return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+  });
+
+  circle.attr("transform", function(d) {
+    return "translate(" + d.x + "," + d.y + ")";
+  });
+
+  text.attr("transform", function(d) {
+    return "translate(" + d.x + "," + d.y + ")";
+  });
+}
+
+    </script>
+    
+<div><hr />
+</div>    
+  </body>
+</html>

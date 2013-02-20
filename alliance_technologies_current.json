@@ -1,0 +1,71 @@
+{source: "NORTHWESTERN", target: "BB Learn", type: "NU"},
+
+// {source: "INDIANA", target: "BB xpLor", type: "IU"},
+{source: "MICHIGAN", target: "BB xpLor", type: "UM"},
+// {source: "NORTHWESTERN", target: "BB xpLor", type: "NU"},
+// {source: "WISCONSIN", target: "BB xpLor", type: "UW"},
+
+{source: "BB Learn", target: "BB xpLor", type: "Other"},
+
+{source: "INDIANA", target: "Box", type: "IU"},
+{source: "MICHIGAN", target: "Box", type: "UM"},
+// {source: "NORTHWESTERN", target: "Box", type: "NU"},
+// {source: "WISCONSIN", target: "Box", type: "UW"},
+
+{source: "INDIANA", target: "Canvas", type: "IU"},
+{source: "MICHIGAN", target: "Canvas", type: "UM"},
+{source: "NORTHWESTERN", target: "Canvas", type: "NU"},
+{source: "WISCONSIN", target: "Canvas", type: "UW"},
+
+// {source: "INDIANA", target: "CourseLoad", type: "IU"},
+{source: "MICHIGAN", target: "CourseLoad", type: "UM"},
+// {source: "NORTHWESTERN", target: "CourseLoad", type: "NU"},
+{source: "WISCONSIN", target: "CourseLoad", type: "UW"},
+
+// {source: "INDIANA", target: "Coursera", type: "IU"},
+{source: "MICHIGAN", target: "Coursera", type: "UM"},
+// {source: "NORTHWESTERN", target: "Coursera", type: "NU"},
+// {source: "WISCONSIN", target: "Coursera", type: "UW"},
+
+{source: "INDIANA", target: "D2L", type: "IU"},
+// {source: "MICHIGAN", target: "D2L", type: "UM"},
+// {source: "NORTHWESTERN", target: "D2L", type: "NU"},
+{source: "WISCONSIN", target: "D2L", type: "UW"},
+
+{source: "INDIANA", target: "Google Apps", type: "IU"},
+{source: "MICHIGAN", target: "Google Apps", type: "UM"},
+{source: "NORTHWESTERN", target: "Google Apps", type: "NU"},
+{source: "WISCONSIN", target: "Google Apps", type: "UW"},
+
+// {source: "INDIANA", target: "Kaltura", type: "IU"},
+{source: "MICHIGAN", target: "Kaltura", type: "UM"},
+// {source: "NORTHWESTERN", target: "Kaltura", type: "NU"},
+{source: "WISCONSIN", target: "Kaltura", type: "UW"},
+
+// {source: "INDIANA", target: "LectureTools", type: "IU"},
+{source: "MICHIGAN", target: "LectureTools", type: "UM"},
+// {source: "NORTHWESTERN", target: "LectureTools", type: "NU"},
+// {source: "WISCONSIN", target: "LectureTools", type: "UW"},
+
+// {source: "INDIANA", target: "Piazza", type: "IU"},
+{source: "MICHIGAN", target: "Piazza", type: "UM"},
+// {source: "NORTHWESTERN", target: "Piazza", type: "NU"},
+// {source: "WISCONSIN", target: "Piazza", type: "UW"},
+
+{source: "MICHIGAN", target: "Sakai CLE", type: "UM"},
+{source: "INDIANA", target: "Sakai CLE", type: "IU"},
+
+{source: "MICHIGAN", target: "Sakai Samigo", type: "UM"},
+{source: "INDIANA", target: "Sakai Samigo", type: "IU"},
+
+{source: "Sakai Samigo", target: "Sakai CLE", type: "Other"},
+
+{source: "INDIANA", target: "CN", type: "IU"},
+// {source: "MICHIGAN", target: "CN", type: "UM"},
+// {source: "NORTHWESTERN", target: "CN", type: "NU"},
+{source: "WISCONSIN", target: "CN", type: "UW"},
+
+{source: "INDIANA", target: "Qualtrics", type: "IU"},
+{source: "MICHIGAN", target: "Qualtrics", type: "UM"},
+{source: "NORTHWESTERN", target: "Qualtrics", type: "NU"},
+{source: "WISCONSIN", target: "Qualtrics", type: "UW"}
