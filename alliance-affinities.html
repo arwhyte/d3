@@ -15,7 +15,7 @@ Match the css types to the third field in the data.
 
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Tag Pairs</title>
+<title>Alliance Force Graph</title>
 <script type="text/javascript" src="d3.js"></script>
 <style type="text/css">	
 
@@ -85,24 +85,31 @@ body,td,th {
   
 <div>
 <h5 align="left"><a href="index.html">Visualizations</a> > <a href="colleagues-aw.html">Alliance Affinities</a></h5>
-  <p>Alliance affinities. Colors represent groups: <span class="IU">Indiana</span>, <span class="UM">Michigan</span>, <span class="NU">Northwestern</span> and <span class="UW">Wisconsin-Madison</span>.</p>
+  <p>Alliance affinities. A physical simulation of charged particles and springs places related nodes in closer proximity, while unrelated nodes are located farther apart.  Colors represent groups: <span class="IU">Indiana</span>, <span class="UM">Michigan</span>, <span class="NU">Northwestern</span> and <span class="UW">Wisconsin-Madison</span>.</p>  
 <hr size="1" noshade /></div>    
-<div style="clear:both"></div>
-    
+<div style="clear:both"></div>   
 <script type="text/javascript">
 
 var orgs = ["INDIANA","MICHIGAN","NORTHWESTERN","WISCONSIN"];
 
 var links = [
 
-{source: "NORTHWESTERN", target: "BB Learn", type: "NU"},
+// {source: "INDIANA", target: "BB Collaborate", type: "IU"},
+// {source: "MICHIGAN", target: "BB Collaborate", type: "UM"},
+// {source: "NORTHWESTERN", target: "BB Collaborate", type: "NU"},
+{source: "WISCONSIN", target: "BB Collaborate", type: "UW"},
 
-// {source: "INDIANA", target: "BB xpLor", type: "IU"},
+{source: "INDIANA", target: "BB Learn", type: "IU"},
+// {source: "MICHIGAN", target: "BB Learn", type: "UM"},
+{source: "NORTHWESTERN", target: "BB Learn", type: "NU"},
+// {source: "WISCONSIN", target: "BB Learn", type: "UW"},
+
+{source: "INDIANA", target: "BB xpLor", type: "IU"},
 {source: "MICHIGAN", target: "BB xpLor", type: "UM"},
 // {source: "NORTHWESTERN", target: "BB xpLor", type: "NU"},
 // {source: "WISCONSIN", target: "BB xpLor", type: "UW"},
 
-{source: "BB Learn", target: "BB xpLor", type: "Other"},
+{source: "NORTHWESTERN", target: "BBoogle", type: "NU"},
 
 {source: "INDIANA", target: "Box", type: "IU"},
 {source: "MICHIGAN", target: "Box", type: "UM"},
@@ -114,35 +121,74 @@ var links = [
 {source: "NORTHWESTERN", target: "Canvas", type: "NU"},
 {source: "WISCONSIN", target: "Canvas", type: "UW"},
 
-// {source: "INDIANA", target: "CourseLoad", type: "IU"},
-{source: "MICHIGAN", target: "CourseLoad", type: "UM"},
+// {source: "INDIANA", target: "CSCR Builder", type: "IU"},
+// {source: "MICHIGAN", target: "CSCR Builder", type: "UM"},
+// {source: "NORTHWESTERN", target: "CSCR Builder", type: "NU"},
+{source: "WISCONSIN", target: "CSCR Builder", type: "UW"},
+
+{source: "INDIANA", target: "CourseLoad", type: "IU"},
+//{source: "MICHIGAN", target: "CourseLoad", type: "UM"},
 // {source: "NORTHWESTERN", target: "CourseLoad", type: "NU"},
 {source: "WISCONSIN", target: "CourseLoad", type: "UW"},
 
 // {source: "INDIANA", target: "Coursera", type: "IU"},
 {source: "MICHIGAN", target: "Coursera", type: "UM"},
-// {source: "NORTHWESTERN", target: "Coursera", type: "NU"},
-// {source: "WISCONSIN", target: "Coursera", type: "UW"},
+{source: "NORTHWESTERN", target: "Coursera", type: "NU"},
+{source: "WISCONSIN", target: "Coursera", type: "UW"},
 
 {source: "INDIANA", target: "D2L", type: "IU"},
 // {source: "MICHIGAN", target: "D2L", type: "UM"},
 // {source: "NORTHWESTERN", target: "D2L", type: "NU"},
 {source: "WISCONSIN", target: "D2L", type: "UW"},
 
+{source: "INDIANA", target: "D2L Learning Env", type: "IU"},
+// {source: "MICHIGAN", target: "D2L Learning Env", type: "UM"},
+// {source: "NORTHWESTERN", target: "D2L Learning Env", type: "NU"},
+{source: "WISCONSIN", target: "D2L Learning Env", type: "UW"},
+
+// {source: "INDIANA", target: "D2L ePortfolio", type: "IU"},
+// {source: "MICHIGAN", target: "D2L ePortfolio", type: "UM"},
+// {source: "NORTHWESTERN", target: "D2L ePortfolio", type: "NU"},
+{source: "WISCONSIN", target: "D2L ePortfolio", type: "UW"},
+
+// {source: "INDIANA", target: "Foliotek", type: "IU"},
+{source: "MICHIGAN", target: "Foliotek", type: "UM"},
+// {source: "NORTHWESTERN", target: "Foliotek", type: "NU"},
+// {source: "WISCONSIN", target: "Foliotek", type: "UW"},
+
 {source: "INDIANA", target: "Google Apps", type: "IU"},
 {source: "MICHIGAN", target: "Google Apps", type: "UM"},
 {source: "NORTHWESTERN", target: "Google Apps", type: "NU"},
 {source: "WISCONSIN", target: "Google Apps", type: "UW"},
 
-// {source: "INDIANA", target: "Kaltura", type: "IU"},
+{source: "INDIANA", target: "Google Course Builder", type: "IU"},
+// {source: "MICHIGAN", target: "Google Course Builder", type: "UM"},
+// {source: "NORTHWESTERN", target: "Google Course Builder", type: "NU"},
+// {source: "WISCONSIN", target: "Google Course Builder", type: "UW"},
+
+// {source: "INDIANA", target: "i>clicker", type: "IU"},
+{source: "MICHIGAN", target: "i>clicker", type: "UM"},
+// {source: "NORTHWESTERN", target: "i>clicker", type: "NU"},
+// {source: "WISCONSIN", target: "i>clicker", type: "UW"},
+
+{source: "INDIANA", target: "iTunes U", type: "IU"},
+{source: "MICHIGAN", target: "iTunes U", type: "UM"},
+{source: "NORTHWESTERN", target: "iTunes U", type: "NU"},
+{source: "WISCONSIN", target: "iTunes U", type: "UW"},
+
+{source: "INDIANA", target: "Kaltura", type: "IU"},
 {source: "MICHIGAN", target: "Kaltura", type: "UM"},
 // {source: "NORTHWESTERN", target: "Kaltura", type: "NU"},
 {source: "WISCONSIN", target: "Kaltura", type: "UW"},
 
-// {source: "INDIANA", target: "LectureTools", type: "IU"},
+{source: "INDIANA", target: "LectureTools", type: "IU"},
 {source: "MICHIGAN", target: "LectureTools", type: "UM"},
 // {source: "NORTHWESTERN", target: "LectureTools", type: "NU"},
 // {source: "WISCONSIN", target: "LectureTools", type: "UW"},
+
+{source: "NORTHWESTERN", target: "NU Lecture Capture", type: "NU"},
+
+{source: "NORTHWESTERN", target: "Media Space", type: "NU"},
 
 // {source: "INDIANA", target: "Piazza", type: "IU"},
 {source: "MICHIGAN", target: "Piazza", type: "UM"},
@@ -155,7 +201,8 @@ var links = [
 {source: "MICHIGAN", target: "Sakai Samigo", type: "UM"},
 {source: "INDIANA", target: "Sakai Samigo", type: "IU"},
 
-{source: "Sakai Samigo", target: "Sakai CLE", type: "Other"},
+{source: "MICHIGAN", target: "Sakai LessonBuilder", type: "UM"},
+{source: "INDIANA", target: "Sakai LessonBuilder", type: "IU"},
 
 {source: "INDIANA", target: "CN", type: "IU"},
 // {source: "MICHIGAN", target: "CN", type: "UM"},
@@ -167,6 +214,21 @@ var links = [
 {source: "NORTHWESTERN", target: "Qualtrics", type: "NU"},
 {source: "WISCONSIN", target: "Qualtrics", type: "UW"}
 
+// Vendors
+// {source: "Apereo", target: "Sakai CLE", type: "Other"},
+// {source: "Apereo", target: "Sakai LessonBuilder", type: "Other"},
+// {source: "Apereo", target: "Sakai Samigo", type: "Other"},
+
+// {source: "Blackboard", target: "BB Collaborate", type: "Other"},
+// {source: "Blackboard", target: "BB Learn", type: "Other"},
+// {source: "Blackboard", target: "BB xpLor", type: "Other"},
+
+// {source: "D2L", target: "D2L Learning Env", type: "Other"},
+// {source: "D2L", target: "D2L ePortfolio", type: "Other"},
+
+// {source: "Google", target: "Google Apps", type: "Other"},
+// {source: "Google", target: "Google Course Builder", type: "Other"}
+
 ];
 
 var nodes = {};
@@ -177,15 +239,15 @@ links.forEach(function(link) {
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
 
-var width = 1060,
-    height = 1060;
+var width = 1280,
+    height = 900;
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
     .linkDistance(200)
-    .charge(-800)
+    .charge(-700)
     .on("tick", tick)
     .start();
 
@@ -222,7 +284,7 @@ var circle = svg.append("g").selectAll("circle")
     .attr("r", function(d) {
         // quick hack
         if (d.name.toLowerCase() == "indiana" || d.name.toLowerCase() == "michigan" || d.name.toLowerCase() == "northwestern" || d.name.toLowerCase() == "wisconsin") {
-            return 20;
+            return 15;
         }
         return 10;
     })     
